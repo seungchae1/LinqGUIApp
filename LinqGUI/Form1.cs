@@ -12,6 +12,16 @@ namespace LinqGUI
 {
     public partial class Form1 : Form
     {
+        static private List<Food> foodList = new List<Food>()
+        {
+            new Food(){Name="떡볶이", Price=3500},
+            new Food(){Name="탕후루", Price=3000},
+            new Food(){Name="햄버거", Price=9000},
+            new Food(){Name="짜장면", Price=8000},
+            new Food(){Name="토스트", Price=2500},
+            new Food(){Name="깜", Price=1000},
+            new Food(){Name="빼빼로", Price=1700},
+        };
         public Form1()
         {
             InitializeComponent();
@@ -19,12 +29,27 @@ namespace LinqGUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            foodBindingSource.DataSource = foodList;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foodBindingSource.DataSource = from item in foodList
+                                           where item.Price > 1500
+                                           orderby item.Price descending
+                                           select item;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foodBindingSource.DataSource = from item in foodList
+                                           orderby item.Name descending
+                                           select item;
         }
     }
 }
