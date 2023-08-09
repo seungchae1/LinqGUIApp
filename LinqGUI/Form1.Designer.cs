@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foodBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -65,12 +70,23 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.DataSource = this.foodBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(21, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(476, 402);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // foodBindingSource
+            // 
+            this.foodBindingSource.DataSource = typeof(LinqGUI.Food);
+            // 
+            // foodBindingSource1
+            // 
+            this.foodBindingSource1.DataSource = typeof(LinqGUI.Food);
             // 
             // Form1
             // 
@@ -84,6 +100,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -94,6 +112,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource foodBindingSource;
     }
 }
 
